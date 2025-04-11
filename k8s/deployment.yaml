@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: buttertech-backend
+  namespace: buttertech
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: buttertech-backend
+  template:
+    metadata:
+      labels:
+        app: buttertech-backend
+    spec:
+      containers:
+        - name: backend
+          image: franzheffa/buttertech-backend:latest
+          ports:
+            - containerPort: 5000
